@@ -5,4 +5,6 @@ class Customer < ActiveRecord::Base
   validates :email, presence: true
   validates :dob, presence: true
   validates :phone, presence: true
+
+  scope :with_addresses, -> { includes(:addresses).order(:id) }
 end
