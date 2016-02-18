@@ -27,4 +27,4 @@ Prepare database
 
 ## Usage
 
-TBD
+See [http://docs.brunocustomerapi.apiary.io](http://docs.brunocustomerapi.apiary.io)
