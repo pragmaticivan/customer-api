@@ -5,6 +5,7 @@ module CustomerAPI
       version 'v1', using: :path
 
       mount Customers
+      mount Addresses
     end
   end
 end

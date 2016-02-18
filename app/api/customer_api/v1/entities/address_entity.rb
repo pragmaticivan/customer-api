@@ -8,6 +8,7 @@ module CustomerAPI
         expose :city, documentation: { type: 'String', desc: 'Address city' }
         expose :state, documentation: { type: 'String', desc: 'Address state' }
         expose :zip, documentation: { type: 'String', desc: 'Address zip code' }
+        expose :customer_id, documentation: { type: 'Integer', desc: 'Customer ID' }
       end
     end
   end
