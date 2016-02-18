@@ -40,8 +40,8 @@ describe CustomerAPI::V1 do
 
         expect(response).not_to be_success
         expect(response).to have_http_status(404)
-        expect(json_body['status']).to eq(404)
-        expect(json_body['message']).to eq('Not Found')
+        expect(json_body).to have_json_attributes_and_values(status: 404, message: 'Not Found')
+        expect(json_body.keys).to contain_exactly(*%w(status message))
       end
     end
 
