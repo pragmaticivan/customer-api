@@ -4,8 +4,10 @@ ruby '2.3.0'
 
 gem 'rails', '4.2.5.1'
 gem 'pg', '~> 0.15'
+gem 'rack-cors'
 gem 'grape', '~> 0.14'
-gem 'grape-entity', '~> 0.5'
+gem 'grape-entity', '0.4.8'
+gem 'grape-swagger', '~> 0.10.4'
 
 group :development do
   gem 'web-console', '~> 2.0'

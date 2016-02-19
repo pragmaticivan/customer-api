@@ -4,17 +4,30 @@ module CustomerAPI
       ENTITY = Entities::CustomerEntity
 
       resource :customers do
-        desc 'Return a list of customers'
+        desc 'Return a list of customers' do
+          success ENTITY
+        end
         get do
           present Customer.with_addresses, with: ENTITY
         end
 
-        desc 'Return customer by id'
+        desc 'Return customer by id' do
+          success ENTITY
+          failure [
+            [404, 'Not Found']
+          ]
+        end
         get ':id' do
           present Customer.find(params[:id]), with: ENTITY
         end
 
-        desc 'Create a new customer'
+        desc 'Create a new customer' do
+          success ENTITY
+          failure [
+            [400, 'Bad Request'],
+            [500, 'Internal Server Error']
+          ]
+        end
         params do
           requires :name, type: String
           requires :email, type: String
@@ -33,7 +46,14 @@ module CustomerAPI
           end
         end
 
-        desc 'Update existing customer'
+        desc 'Update existing customer' do
+          success ENTITY
+          failure [
+            [400, 'Bad Request'],
+            [404, 'Not Found'],
+            [500, 'Internal Server Error']
+          ]
+        end
         params do
           optional :name, type: String
           optional :email, type: String
@@ -54,7 +74,14 @@ module CustomerAPI
           end
         end
 
-        desc 'Delete existing customer'
+        desc 'Delete existing customer' do
+          success ENTITY
+          failure [
+            [400, 'Bad Request'],
+            [404, 'Not Found'],
+            [500, 'Internal Server Error']
+          ]
+        end
         delete ':id' do
           present Customer.destroy(params[:id]), with: ENTITY
         end

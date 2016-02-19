@@ -28,3 +28,5 @@ Prepare database
 ## Usage
 
 See [http://docs.brunocustomerapi.apiary.io](http://docs.brunocustomerapi.apiary.io)
+
+Alternatevely, you can access the documentation using Swagger UI pointing to `/api/v1/swagger_doc`

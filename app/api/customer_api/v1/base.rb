@@ -1,3 +1,5 @@
+require 'grape-swagger'
+
 module CustomerAPI
   module V1
     class Base < Grape::API
@@ -6,6 +8,9 @@ module CustomerAPI
 
       mount Customers
       mount Addresses
+
+      add_swagger_documentation hide_documentation_path: true,
+	api_version: 'v1'
     end
   end
 end
